@@ -1,52 +1,4 @@
-export default function Education() {
-  const academicEducation = [
-    {
-      degree: "Bachelor's Degree in Business Administration",
-      institution: "Universidad ORT Uruguay",
-      description:
-        "Focused on management, marketing, finance, and organizational strategy, with emphasis on leadership and business development.",
-      img: "public/img/foto ORT.jpg",
-    },
-    {
-      degree: "High School Diploma",
-      institution: "Colegio Stella Maris, Christians Brothers",
-      description:
-        "Diploma in Economics with emphasis on mathematics, accounting, and social sciences.",
-      img: "public/img/stellaMaris.svg",
-    },
-  ];
-  const technicalEducation = [
-    {
-      institution: "Hack Academy",
-      img: "public/img/hack-academy-logo.jpg",
-      programs: [
-        {
-          degree: "Full Stack Developer Bootcamp",
-          date: "May 2025 - Aug 2025",
-          description:
-            "Intensive 3-month program totaling over 700 hours, covering both front-end and back-end development. The course was incredibly demanding and challenging, pushing us to give our all, but it was also highly rewarding and enjoyable. We faced complex projects, learned a wide range of technologies, and grew significantly as developers through hands-on experience and collaboration.",
-          skills: {
-            FrontEnd: ["HTML", "CSS", "JavaScript", "React", "TypeScript"],
-            BackEnd: ["Node.js", "Express", "MongoDB", "MySQL"],
-          },
-        },
-        {
-          degree: "Artificial Intelligence Course",
-          date: "Jul 2025 - Sep 2025",
-          description:
-            "Course on the fundamentals of AI and machine learning, covering supervised/unsupervised learning, neural networks, and practical applications such as AI logo creation tools, deployment with Vercel, and frameworks like TensorFlow and PyTorch.",
-          skills: {
-            AI: [
-              "Fundamentals of Artificial Intelligence",
-              "Machine Learning",
-              "AI-powered Applications",
-            ],
-          },
-        },
-      ],
-    },
-  ];
-
+export default function Education({ academicEducation, technicalEducation }) {
   return (
     <section className="mx-5 py-5" aria-labelledby="education-title">
       {/* Header */}
@@ -56,9 +8,6 @@ export default function Education() {
         </h2>
         <p className="text-muted">My academic background and qualifications.</p>
       </div>
-
-      {/* Academic Education */}
-      <h3 className="h4 fw-semibold mb-4">Academic Education</h3>
       <div className="row row-cols-1 row-cols-md-2 g-4 mb-5">
         {academicEducation.map((edu, index) => (
           <div className="col" key={index}>
@@ -110,8 +59,8 @@ export default function Education() {
                     src={academy.img}
                     alt={academy.institution}
                     style={{
-                      width: "90px",
-                      height: "90px",
+                      width: "70px",
+                      height: "70px",
                       objectFit: "contain",
                     }}
                     className="me-3"
@@ -125,7 +74,7 @@ export default function Education() {
                 {academy.programs.map((program, i) => (
                   <div className="col" key={i}>
                     <div className="border shadow card-hover rounded p-3 h-100">
-                      <h4 className="h6 fw-bold mb-1">{program.degree}</h4>
+                      <h4 className="h6 fw-semibold mb-1">{program.degree}</h4>
                       {program.date && (
                         <p className="text-muted small mb-2">{program.date}</p>
                       )}
