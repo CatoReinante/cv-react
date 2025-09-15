@@ -56,7 +56,7 @@ export default function HomePage() {
                 ].map((t) => (
                   <span
                     key={t}
-                    className="badge rounded-pill text-bg-light border"
+                    className="badge rounded-pill bg-body-tertiary text-body border"
                   >
                     {t}
                   </span>
@@ -68,7 +68,10 @@ export default function HomePage() {
                   <p className="text-center">Check out my last project</p>
                   <a
                     href="https://studio-nora-ecommerce.vercel.app/"
-                    className="text-center badge rounded-pill text-bg-light border fs-5 px-4 py-2"
+                    className="text-center badge rounded-pill bg-body-tertiary text-body border fs-5 px-4 py-2"
+                    style={{
+                      textDecoration: "none",
+                    }}
                   >
                     Studio Nora
                   </a>
@@ -76,11 +79,9 @@ export default function HomePage() {
                 <div className="text-center col">
                   <p className="text-center">Check out my CV</p>
                   <a
-                    className="text-center badge rounded-pill text-bg-light border fs-5 px-4 py-2"
-                    style={{
-                      textDecoration: "none",
-                    }}
-                    href="public/CV Joaquin Reinante ENG. 2025.pdf"
+                    className="text-center badge rounded-pill bg-body-tertiary text-body border fs-5 px-4 py-2"
+                    style={{ textDecoration: "none" }}
+                    href="public/CV Joaquin Reinante FSD ENG.pdf"
                     download
                   >
                     Download CV
@@ -111,15 +112,6 @@ export default function HomePage() {
           </div>
         </section>
       </div>{" "}
-      <section id="career" className="" style={{ minHeight: "80vh" }}>
-        <WorkTimeline workExperiences={workExperiences} />
-      </section>
-      <section id="education" className="" style={{ minHeight: "80vh" }}>
-        <Education
-          academicEducation={academicEducation}
-          technicalEducation={technicalEducation}
-        />
-      </section>
     </div>
   );
 }

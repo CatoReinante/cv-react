@@ -1,104 +1,132 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function WorkTimeline({ workExperiences }) {
-  const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
+export default function WorkTimeline({ workExperiences = [] }) {
+  const [selectedIdx, setSelectedIdx] = useState(0);
+  const selected = workExperiences?.[selectedIdx] ?? null;
 
-  const onSelect = (xp) => {
-    setSelected(xp);
-    setOpen(true);
-  };
+  useEffect(() => {
+    if (!selected && workExperiences.length) setSelectedIdx(0);
+  }, [workExperiences]); // eslint-disable-line
 
   return (
-    <section className="my-5">
-      <h2 className="fw-bold text-center mb-2">Work Timeline</h2>
-      <h4 className="text-center text-muted mb-5">
-        Click on a job to see more details
-      </h4>
-
-      <div className="row justify-content-center gap-3">
-        {workExperiences.map((xp, i) => (
-          <div
-            key={i}
-            className="col-3 text-center mb-5"
-            onClick={() => onSelect(xp)}
-            style={{ cursor: "pointer", minWidth: "300px" }}
-          >
+    <section className="container my-5 py-4" aria-labelledby="career-title">
+      <div className="row g-4" style={{ marginTop: "30px" }}>
+        {/* IZQUIERDA: línea vertical + ítems */}
+        <div className="col-12 col-lg-5">
+          <div className="position-relative ps-4">
+            {/* Línea vertical dependiente del theme */}
             <div
-              className="mt-3 shadow rounded card-hover p-4 d-flex flex-column justify-content-center"
-              style={{ height: "200px" }}
-            >
-              <h5>{xp.title}</h5>
-              <div className="text-muted">{xp.company}</div>
-              <div className="badge text-bg-light fs-6 border mt-1">
-                {xp.date}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Modal */}
-      {open && selected && (
-        <div
-          className="modal fade show d-block custom-backdrop"
-          tabIndex="-1"
-          onClick={() => setOpen(false)}
-        >
-          <div
-            className="modal-dialog modal-xl modal-dialog-centered"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">
-                  {selected.title} · {selected.company} · {selected.date}
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setOpen(false)}
-                />
-              </div>
-              <div className="modal-body">
-                <p>{selected.description.summary}</p>
-
-                <div className="row g-4">
-                  <div className="col-md-7">
-                    <h6>Responsibilities</h6>
-                    <ul>
-                      {selected.description.responsibilities.map((r, i) => (
-                        <li key={i}>{r}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="col-md-5">
-                    <h6>Skills</h6>
-                    <div className="d-flex flex-wrap gap-2">
-                      {selected.description.skills.map((s, i) => (
-                        <span
-                          key={i}
-                          className="badge rounded-pill text-bg-light border"
-                        >
-                          {s}
-                        </span>
-                      ))}
+              className="position-absolute top-0 bottom-0"
+              style={{
+                left: 10,
+                width: 2,
+                background: "var(--bs-border-color)",
+              }}
+              aria-hidden="true"
+            />
+            <div className="d-flex flex-column">
+              {workExperiences.map((xp, i) => {
+                const active = i === selectedIdx;
+                return (
+                  <button
+                    key={`${xp.title}-${i}`}
+                    type="button"
+                    onClick={() => setSelectedIdx(i)}
+                    aria-current={active ? "true" : undefined}
+                    className={`btn text-start w-100 py-3 px-3 mb-2 d-flex align-items-start gap-3 rounded-3 border shadow-sm ${
+                      active
+                        ? "bg-primary-subtle border-primary"
+                        : "bg-body-tertiary border-secondary-subtle"
+                    }`}
+                  >
+                    {/* Punto de la línea */}
+                    <span
+                      className="flex-shrink-0 rounded-circle border border-0"
+                      style={{
+                        width: 14,
+                        height: 14,
+                        marginLeft: -26,
+                        marginTop: 4,
+                        boxShadow: "0 0 0 2px var(--bs-border-color)",
+                        background: active
+                          ? "var(--bs-primary)"
+                          : "var(--bs-secondary)",
+                      }}
+                      aria-hidden="true"
+                    />
+                    <div className="flex-grow-1">
+                      <div className="fw-semibold">{xp.title}</div>
+                      <div className="text-body-secondary small">
+                        {xp.company}
+                      </div>
+                      <span className="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle mt-2">
+                        {xp.date}
+                      </span>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div className="modal-footer">
-                <button
-                  className="btn btn-secondary"
-                  onClick={() => setOpen(false)}
-                >
-                  Close
-                </button>
-              </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
-      )}
+
+        {/* DERECHA: detalle */}
+        <div className="col-12 col-lg-7">
+          <h2 id="career-title" className="fw-bold display-6 mb-4">
+            Work Experience
+          </h2>
+          <h4 className="text-body-secondary mb-4">
+            Hace click en un trabajo para ver los detalles
+          </h4>
+          {selected ? (
+            <div className="card shadow-sm bg-body border">
+              <div className="card-body">
+                <h5 className="card-title mb-1">
+                  {selected.title} · {selected.company}
+                </h5>
+                <div className="text-body-secondary mb-3">{selected.date}</div>
+
+                {selected.description?.summary && (
+                  <p className="mb-4">{selected.description.summary}</p>
+                )}
+
+                <div className="row g-4">
+                  {Array.isArray(selected.description?.responsibilities) && (
+                    <div className="col-md-7">
+                      <h6 className="mb-2">Responsibilities</h6>
+                      <ul className="mb-0">
+                        {selected.description.responsibilities.map((r, idx) => (
+                          <li key={idx}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {Array.isArray(selected.description?.skills) && (
+                    <div className="col-md-5">
+                      <h6 className="mb-2">Skills</h6>
+                      <div className="d-flex flex-wrap gap-2">
+                        {selected.description.skills.map((s, idx) => (
+                          <span
+                            key={idx}
+                            className="badge rounded-pill bg-body-tertiary text-body border"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="text-body-secondary">
+              Select a job to see details.
+            </div>
+          )}
+        </div>
+      </div>
     </section>
   );
 }

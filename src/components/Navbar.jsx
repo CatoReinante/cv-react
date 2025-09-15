@@ -1,4 +1,5 @@
 import { NavLink } from "react-router";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   return (
@@ -21,23 +22,32 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a href="/JoaquinReinante#me" className="nav-link">
+              <a href="/JoaquinReinante" className="nav-link">
                 My Story
               </a>
             </li>
 
             <li className="nav-item">
-              <a href="/JoaquinReinante#career" className="nav-link">
+              <a href="/JoaquinReinante/career" className="nav-link">
                 Career
               </a>
             </li>
 
             <li className="nav-item">
-              <a href="/JoaquinReinante#education" className="nav-link">
+              <a href="/JoaquinReinante/education" className="nav-link">
                 Studies
               </a>
             </li>
+            <li className="nav-item">
+              <a href="/JoaquinReinante/games" className="nav-link">
+                Games
+              </a>
+            </li>
           </ul>
+
+          <div className="ms-auto">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </nav>
