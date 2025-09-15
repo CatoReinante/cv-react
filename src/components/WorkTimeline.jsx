@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function WorkTimeline({ workExperiences }) {
   const [open, setOpen] = useState(false);
@@ -11,16 +11,16 @@ export default function WorkTimeline({ workExperiences }) {
 
   return (
     <section className="my-5">
-      <h2 className="fw-bold text-center mb-4">Work Timeline</h2>
-      <h5 className="text-center text-muted mb-4">
-        (Click on a job to see details)
-      </h5>
+      <h2 className="fw-bold text-center mb-2">Work Timeline</h2>
+      <h4 className="text-center text-muted mb-5">
+        Click on a job to see more details
+      </h4>
 
       <div className="row justify-content-center gap-3">
         {workExperiences.map((xp, i) => (
           <div
             key={i}
-            className="col-2 text-center"
+            className="col-3 text-center mb-5"
             onClick={() => onSelect(xp)}
             style={{ cursor: "pointer", minWidth: "300px" }}
           >
@@ -30,7 +30,9 @@ export default function WorkTimeline({ workExperiences }) {
             >
               <h5>{xp.title}</h5>
               <div className="text-muted">{xp.company}</div>
-              <div className="badge text-bg-light border mt-1">{xp.date}</div>
+              <div className="badge text-bg-light fs-6 border mt-1">
+                {xp.date}
+              </div>
             </div>
           </div>
         ))}

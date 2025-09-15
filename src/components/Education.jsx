@@ -1,4 +1,14 @@
+import { useState } from "react";
+
 export default function Education({ academicEducation, technicalEducation }) {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState(null);
+
+  const openModal = (src, title) => {
+    setSelected({ src, title });
+    setOpen(true);
+  };
+
   return (
     <section className="mx-5 py-5" aria-labelledby="education-title">
       {/* Header */}
@@ -8,21 +18,29 @@ export default function Education({ academicEducation, technicalEducation }) {
         </h2>
         <p className="text-muted">My academic background and qualifications.</p>
       </div>
-      <div className="row row-cols-1 row-cols-md-2 g-4 mb-5">
+
+      {/* Academic list */}
+      <div className="row row-cols-1 row-cols-md-2 g-4 mb-2">
         {academicEducation.map((edu, index) => (
           <div className="col" key={index}>
-            <div className="card h-100 border shadow card-hover">
+            <div
+              className="card h-100 border shadow card-hover"
+              role="button"
+              style={{ cursor: "pointer" }}
+              onClick={() =>
+                openModal(
+                  edu.certificate || edu.img,
+                  `${edu.degree} · ${edu.institution}`
+                )
+              }
+            >
               <div className="card-body p-4 d-flex flex-column">
                 <div className="d-flex align-items-center mb-3">
                   {edu.img && (
                     <img
                       src={edu.img}
                       alt={edu.institution}
-                      style={{
-                        width: "90px",
-                        height: "90px",
-                        objectFit: "contain",
-                      }}
+                      style={{ width: 90, height: 90, objectFit: "contain" }}
                       className="me-3"
                     />
                   )}
@@ -32,6 +50,9 @@ export default function Education({ academicEducation, technicalEducation }) {
                   </div>
                 </div>
                 <p className="mb-0">{edu.description}</p>
+                <span className="mt-3 small text-primary d-inline-block">
+                  View certificate
+                </span>
               </div>
             </div>
           </div>
@@ -58,11 +79,7 @@ export default function Education({ academicEducation, technicalEducation }) {
                   <img
                     src={academy.img}
                     alt={academy.institution}
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                      objectFit: "contain",
-                    }}
+                    style={{ width: 70, height: 70, objectFit: "contain" }}
                     className="me-3"
                   />
                 )}
@@ -73,7 +90,17 @@ export default function Education({ academicEducation, technicalEducation }) {
               <div className="row row-cols-1 row-cols-md-2 g-4">
                 {academy.programs.map((program, i) => (
                   <div className="col" key={i}>
-                    <div className="border shadow card-hover rounded p-3 h-100">
+                    <div
+                      className="border shadow card-hover rounded p-3 h-100"
+                      role="button"
+                      style={{ cursor: "pointer" }}
+                      onClick={() =>
+                        openModal(
+                          program.certificate || academy.img,
+                          `${program.degree} · ${academy.institution}`
+                        )
+                      }
+                    >
                       <h4 className="h6 fw-semibold mb-1">{program.degree}</h4>
                       {program.date && (
                         <p className="text-muted small mb-2">{program.date}</p>
@@ -104,6 +131,9 @@ export default function Education({ academicEducation, technicalEducation }) {
                           )}
                         </div>
                       )}
+                      <span className="mt-2 small text-primary d-inline-block">
+                        View certificate
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -112,6 +142,53 @@ export default function Education({ academicEducation, technicalEducation }) {
           </div>
         ))}
       </section>
+
+      {/* Modal (igual al de WorkTimeline) */}
+      {open && selected && (
+        <div
+          className="modal fade show d-block custom-backdrop"
+          tabIndex="-1"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            className="modal-dialog modal-xl modal-dialog-centered"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">{selected.title}</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={() => setOpen(false)}
+                />
+              </div>
+              <div className="modal-body">
+                {selected.src ? (
+                  <div className="text-center">
+                    <img
+                      src={selected.src}
+                      alt={selected.title}
+                      className="img-fluid rounded"
+                      style={{ maxHeight: "75vh", objectFit: "contain" }}
+                    />
+                  </div>
+                ) : (
+                  <p className="text-muted">No certificate available.</p>
+                )}
+              </div>
+              <div className="modal-footer">
+                <button
+                  className="btn btn-secondary"
+                  onClick={() => setOpen(false)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

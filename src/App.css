@@ -17,3 +17,19 @@ ul {
 .modal-content {
   border-radius: 1rem;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+#career {
+  scroll-margin-top: 140px;
+}
+
+#education {
+  scroll-margin-top: 70px;
+}
+
+#me {
+  scroll-margin-top: 100vh;
+}

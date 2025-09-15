@@ -73,7 +73,55 @@ export const workExperiences = [
         "Updating and maintenance of records in internal systems.",
         "Providing support to global teams in various administrative, compliance, and documentation tasks.",
       ],
-      skills: ["Attention to detail.", "International environment."],
+      skills: [
+        "Attention to detail",
+        "Contract management",
+        "Compliance and risk awareness",
+        "Collaboration with global teams",
+        "Time management",
+        "Microsoft Office Suite",
+      ],
+    },
+  },
+  {
+    title: "Comercial Department",
+    company: "España Judiciales",
+    date: "Aug 2024 to Jan 2025",
+    description: {
+      summary:
+        "I was responsible for the preparation of quotations and commercial proposals, as well as the prospecting and acquisition of new clients to expand the business portfolio.",
+      responsibilities: [
+        "Account tracking and collection management.",
+        "Ensuring timely payments and strong client relationships.",
+        "Preparation and delivery of administrative and technical documentation.",
+      ],
+      skills: [
+        "Attention to detail.",
+        "Strong communication.",
+        "Interpersonal skills.",
+        "Negotiation skills.",
+      ],
+    },
+  },
+  {
+    title: "Full Stack Developer Bootcamp",
+    company: "Hack Academy",
+    date: "Mar 2025 to Aug 2025",
+    description: {
+      summary:
+        "Completed a 700+ hour Full Stack Developer Bootcamp, building end-to-end applications with React, Node.js, Express, MongoDB and MySQL in agile, team-based projects. In parallel, I studied Artificial Intelligence, learning fundamentals of machine learning, neural networks and practical AI applications. These experiences strengthened my ability to deliver scalable solutions and adapt quickly to new technologies.",
+      responsibilities: [
+        "Developing user interfaces with React.",
+        "Building RESTful APIs with Node.js and Express.",
+        "Database management with MongoDB and MySQL.",
+      ],
+      skills: [
+        "HTML, CSS, JavaScript, TypeScript",
+        "React, Node.js, Express",
+        "MongoDB, MySQL",
+        "Git and version control",
+        "Agile methodologies",
+      ],
     },
   },
 ];
