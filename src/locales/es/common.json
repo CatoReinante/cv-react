@@ -8,12 +8,181 @@
   "home": {
     "name": "Joaquín Reinante",
     "role": "Full-Stack Developer · Lic. en Administración de Empresas",
-    "intro": "Formado en negocios y orientado a la tecnología. Tras graduarme en Administración de Empresas, decidí cambiar mi rumbo profesional hacia el desarrollo de software y completé un Bootcamp Full-Stack intensivo de más de 700 horas. Desarrolló aplicaciones web de extremo a extremo y me desempeño con éxito en entornos dinámicos y colaborativos, aprendiendo rápidamente, adaptándome al cambio y resolviendo problemas con una mentalidad orientada al producto.",
+    "intro": "Formación en negocios, enfoque tecnológico. Tras recibirme en Administración de Empresas, cambié mi carrera hacia el desarrollo de software y completé un Bootcamp Full-Stack intensivo de más de 700 horas. Construyo aplicaciones web end-to-end y me desempeño en entornos dinámicos y colaborativos — aprendo rápido, me adapto al cambio y resuelvo problemas con mentalidad de producto.",
     "ctaProjectLabel": "Mirá mi último proyecto",
     "ctaProjectBtn": "Studio Nora",
     "ctaCvLabel": "Mirá mi CV",
     "ctaCvBtn": "Descargar CV",
     "thanks": "Gracias por visitar — abierto a nuevos desafíos y colaboraciones.",
-    "altProfile": "Foto de perfil"
+    "altProfile": "Foto de perfil de Joaquín Reinante"
+  },
+  "education": {
+    "labels": {
+      "academicTitle": "Educación Académica",
+      "academicSubtitle": "Mi formación y calificaciones académicas.",
+      "technicalTitle": "Educación Técnica",
+      "technicalSubtitle": "Programas intensivos y certificaciones de Hack Academy.",
+      "viewCertificate": "Ver certificado",
+      "modalNoCert": "No hay certificado disponible.",
+      "modalClose": "Cerrar"
+    },
+    "academic": [
+      {
+        "degree": "Licenciatura en Administración de Empresas",
+        "institution": "Universidad ORT Uruguay",
+        "description": "Enfoque en gestión, marketing, finanzas y estrategia organizacional, con énfasis en liderazgo y desarrollo de negocios."
+      },
+      {
+        "degree": "Bachillerato",
+        "institution": "Colegio Stella Maris, Christian Brothers",
+        "description": "Bachillerato en Economía con énfasis en matemática, contabilidad y ciencias sociales."
+      }
+    ],
+    "technical": {
+      "institutions": [
+        {
+          "name": "Hack Academy",
+          "programs": [
+            {
+              "degree": "Bootcamp de Full Stack Developer",
+              "date": "May 2025 - Ago 2025",
+              "description": "Programa intensivo de 3 meses con más de 700 horas, abarcando front-end y back-end. Fue exigente y desafiante, pero también muy gratificante y disfrutable. Enfrentamos proyectos complejos, aprendimos un amplio rango de tecnologías y crecimos significativamente como desarrolladores mediante práctica y colaboración."
+            },
+            {
+              "degree": "Curso de Inteligencia Artificial",
+              "date": "Jul 2025 - Sep 2025",
+              "description": "Curso sobre fundamentos de IA y machine learning, incluyendo aprendizaje supervisado/no supervisado, redes neuronales y aplicaciones prácticas como herramientas de creación de logos con IA, deployment en Vercel y frameworks como TensorFlow y PyTorch."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "work": {
+    "labels": {
+      "title": "Experiencia Laboral",
+      "subtitle": "Hacé clic en un trabajo para ver los detalles",
+      "responsibilities": "Responsabilidades",
+      "skills": "Skills",
+      "empty": "Seleccioná un trabajo para ver los detalles."
+    },
+    "experiences": [
+      {
+        "title": "Full Stack Developer Bootcamp",
+        "company": "Hack Academy",
+        "date": "Mar 2025 a Ago 2025",
+        "description": {
+          "summary": "Bootcamp de más de 700 horas, construyendo aplicaciones end-to-end con React, Node.js, Express, MongoDB y MySQL en proyectos ágiles en equipo. En paralelo estudié Inteligencia Artificial (fundamentos de ML, redes neuronales y aplicaciones prácticas). Fortalecí mi capacidad para entregar soluciones escalables y adaptarme rápido a nuevas tecnologías.",
+          "responsibilities": [
+            "Desarrollo de interfaces de usuario con React.",
+            "Construcción de APIs REST con Node.js y Express.",
+            "Gestión de bases de datos con MongoDB y MySQL."
+          ],
+          "skills": [
+            "HTML, CSS, JavaScript, TypeScript",
+            "React, Node.js, Express",
+            "MongoDB, MySQL",
+            "Git y control de versiones",
+            "Metodologías ágiles"
+          ]
+        }
+      },
+      {
+        "title": "Departamento Comercial",
+        "company": "España Judiciales",
+        "date": "Ago 2024 a Ene 2025",
+        "description": {
+          "summary": "Responsable de la elaboración de cotizaciones y propuestas comerciales, así como de la prospección y captación de nuevos clientes para ampliar la cartera.",
+          "responsibilities": [
+            "Seguimiento de cuentas y gestión de cobranzas.",
+            "Asegurar pagos en tiempo y fortalecer la relación con clientes.",
+            "Preparación y entrega de documentación administrativa y técnica."
+          ],
+          "skills": [
+            "Atención al detalle.",
+            "Comunicación efectiva.",
+            "Habilidades interpersonales.",
+            "Negociación."
+          ]
+        }
+      },
+      {
+        "title": "Analista Administrativo - Servicios BPO",
+        "company": "Tata Consultancy Services - Microsoft",
+        "date": "Jun 2023 a Ene 2024",
+        "description": {
+          "summary": "Seguimiento administrativo y legal de contratos comerciales de Microsoft mediante la plataforma ECIF (Enterprise Contract Information Form), garantizando cumplimiento y precisión en todo el proceso.",
+          "responsibilities": [
+            "Revisión y validación de información contractual y financiera.",
+            "Actualización y mantenimiento de registros en sistemas internos.",
+            "Soporte a equipos globales en tareas administrativas, de compliance y documentación."
+          ],
+          "skills": [
+            "Atención al detalle",
+            "Gestión de contratos",
+            "Conciencia de cumplimiento y riesgos",
+            "Colaboración con equipos globales",
+            "Gestión del tiempo",
+            "Microsoft Office"
+          ]
+        }
+      },
+      {
+        "title": "Departamento Comercial",
+        "company": "España Judiciales",
+        "date": "Feb 2022 a Jun 2023",
+        "description": {
+          "summary": "Responsable de elaborar cotizaciones y propuestas comerciales, además de prospectar y captar nuevos clientes para expandir la cartera.",
+          "responsibilities": [
+            "Seguimiento de cuentas y cobranza.",
+            "Asegurar pagos a tiempo y relaciones sólidas con clientes.",
+            "Preparación y entrega de documentación administrativa y técnica."
+          ],
+          "skills": [
+            "Atención al detalle.",
+            "Comunicación efectiva.",
+            "Habilidades interpersonales.",
+            "Negociación."
+          ]
+        }
+      },
+      {
+        "title": "Asistente General y Peón",
+        "company": "Trabajos varios en Australia",
+        "date": "Feb 2020 a Dic 2021",
+        "description": {
+          "summary": "Experiencia práctica en distintos rubros de servicios y mantenimiento, incluyendo limpieza, ayudante de cocina, construcción y jardinería.",
+          "responsibilities": [
+            "Limpieza en hoteles 5 estrellas.",
+            "Asistencia de cocina y preparación de alimentos.",
+            "Apoyo en construcción y reformas.",
+            "Jardinería y mantenimiento de exteriores."
+          ],
+          "skills": [
+            "Adaptabilidad a diferentes entornos de trabajo.",
+            "Trabajo en equipo y comunicación.",
+            "Resistencia física y atención al detalle."
+          ]
+        }
+      },
+      {
+        "title": "Asistente Administrativo",
+        "company": "Julius Baer",
+        "date": "Jun 2017 a Dic 2018",
+        "description": {
+          "summary": "Soporte administrativo al área de Wealth Management, asistiendo a asesores financieros en la gestión de carteras y garantizando la operación diaria.",
+          "responsibilities": [
+            "Gestión de agendas y coordinación de reuniones.",
+            "Coordinación de encuentros y preparación de materiales.",
+            "Apoyo en la elaboración de reportes y presentaciones para clientes."
+          ],
+          "skills": [
+            "Gran organización y multitarea.",
+            "Excelente comunicación escrita y oral.",
+            "Dominio de herramientas y software de oficina."
+          ]
+        }
+      }
+    ]
   }
 }

@@ -1,8 +1,16 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Education({ academicEducation, technicalEducation }) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);
+  const { t } = useTranslation("common");
+
+  // Textos i18n
+  const academicTexts = t("education.academic", { returnObjects: true });
+  const institutionsTexts = t("education.technical.institutions", {
+    returnObjects: true,
+  });
 
   const openModal = (src, title) => {
     setSelected({ src, title });
@@ -16,10 +24,10 @@ export default function Education({ academicEducation, technicalEducation }) {
         <div className="col-6">
           <div className="text-center mb-5">
             <h2 id="education-title" className="fw-bold display-6 mb-3 mt-5">
-              Academic Education
+              {t("education.labels.academicTitle")}
             </h2>
             <p className="text-muted">
-              My academic background and qualifications.
+              {t("education.labels.academicSubtitle")}
             </p>
           </div>
           {/* Academic list */}
@@ -34,7 +42,7 @@ export default function Education({ academicEducation, technicalEducation }) {
                   onClick={() =>
                     openModal(
                       edu.certificate || edu.img,
-                      `${edu.degree} · ${edu.institution}`
+                      `${academicTexts?.[index]?.degree} · ${academicTexts?.[index]?.institution}`
                     )
                   }
                 >
@@ -43,7 +51,7 @@ export default function Education({ academicEducation, technicalEducation }) {
                       {edu.img && (
                         <img
                           src={edu.img}
-                          alt={edu.institution}
+                          alt={academicTexts?.[index]?.institution}
                           style={{
                             width: 90,
                             height: 90,
@@ -53,13 +61,19 @@ export default function Education({ academicEducation, technicalEducation }) {
                         />
                       )}
                       <div>
-                        <h3 className="h6 fw-bold mb-1">{edu.degree}</h3>
-                        <h6 className="text-muted mb-0">{edu.institution}</h6>
+                        <h3 className="h6 fw-bold mb-1">
+                          {academicTexts?.[index]?.degree}
+                        </h3>
+                        <h6 className="text-muted mb-0">
+                          {academicTexts?.[index]?.institution}
+                        </h6>
                       </div>
                     </div>
-                    <p className="mb-0">{edu.description}</p>
+                    <p className="mb-0">
+                      {academicTexts?.[index]?.description}
+                    </p>
                     <span className="mt-3 small text-primary d-inline-block">
-                      View certificate
+                      {t("education.labels.viewCertificate")}
                     </span>
                   </div>
                 </div>
@@ -72,10 +86,10 @@ export default function Education({ academicEducation, technicalEducation }) {
           <section className="py-5" aria-labelledby="tech-edu-title">
             <div className="text-center mb-5">
               <h2 id="tech-edu-title" className="fw-bold display-6 mb-3">
-                Technical Education
+                {t("education.labels.technicalTitle")}
               </h2>
               <p className="text-muted">
-                Intensive programs and certifications from Hack Academy.
+                {t("education.labels.technicalSubtitle")}
               </p>
             </div>
             {technicalEducation.map((academy, index) => (
@@ -94,7 +108,7 @@ export default function Education({ academicEducation, technicalEducation }) {
                           onClick={() =>
                             openModal(
                               program.certificate || academy.img,
-                              `${program.degree} · ${academy.institution}`
+                              `${institutionsTexts?.[index]?.programs?.[i]?.degree} · ${institutionsTexts?.[index]?.name}`
                             )
                           }
                         >
@@ -102,7 +116,7 @@ export default function Education({ academicEducation, technicalEducation }) {
                             {academy.img && (
                               <img
                                 src={academy.img}
-                                alt={academy.institution}
+                                alt={institutionsTexts?.[index]?.name}
                                 style={{
                                   width: 55,
                                   height: 55,
@@ -112,16 +126,28 @@ export default function Education({ academicEducation, technicalEducation }) {
                               />
                             )}
                             <div className="d-inline-block align-middle">
-                              {program.degree}
-                              {program.date && (
+                              {
+                                institutionsTexts?.[index]?.programs?.[i]
+                                  ?.degree
+                              }
+                              {institutionsTexts?.[index]?.programs?.[i]
+                                ?.date && (
                                 <p className="text-muted small mb-2">
-                                  {program.date}
+                                  {
+                                    institutionsTexts?.[index]?.programs?.[i]
+                                      ?.date
+                                  }
                                 </p>
                               )}
                             </div>
                           </h4>
 
-                          <p className="mb-3">{program.description}</p>
+                          <p className="mb-3">
+                            {
+                              institutionsTexts?.[index]?.programs?.[i]
+                                ?.description
+                            }
+                          </p>
                           {/* Skills */}
                           {program.skills && (
                             <div>
@@ -147,7 +173,7 @@ export default function Education({ academicEducation, technicalEducation }) {
                             </div>
                           )}
                           <span className="mt-2 small text-primary d-inline-block">
-                            View certificate
+                            {t("education.labels.viewCertificate")}
                           </span>
                         </div>
                       </div>
@@ -191,7 +217,9 @@ export default function Education({ academicEducation, technicalEducation }) {
                     />
                   </div>
                 ) : (
-                  <p className="text-muted">No certificate available.</p>
+                  <p className="text-muted">
+                    {t("education.labels.modalNoCert")}
+                  </p>
                 )}
               </div>
               <div className="modal-footer">
@@ -199,7 +227,7 @@ export default function Education({ academicEducation, technicalEducation }) {
                   className="btn btn-secondary"
                   onClick={() => setOpen(false)}
                 >
-                  Close
+                  {t("education.labels.modalClose")}
                 </button>
               </div>
             </div>

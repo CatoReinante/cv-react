@@ -1,43 +1,39 @@
 export const academicEducation = [
   {
-    degree: "Bachelor's Degree in Business Administration",
-    institution: "Universidad ORT Uruguay",
-    description:
-      "Focused on management, marketing, finance, and organizational strategy, with emphasis on leadership and business development.",
+    id: "ort-bba",
     img: "/img/foto ORT.jpg",
     certificate: "/img/Diploma ORT.jpeg",
+    start: "2019-03-01",
+    end: "2023-12-15",
   },
   {
-    degree: "High School Diploma",
-    institution: "Colegio Stella Maris, Christians Brothers",
-    description:
-      "Diploma in Economics with emphasis on mathematics, accounting, and social sciences.",
+    id: "stella-hs",
     img: "/img/stellaMaris.svg",
+    start: "2013-03-01",
+    end: "2017-12-01",
   },
 ];
 
 export const technicalEducation = [
   {
-    institution: "Hack Academy",
+    id: "hackacademy",
     img: "/img/logoHack.jpg",
     programs: [
       {
-        degree: "Full Stack Developer Bootcamp",
-        date: "May 2025 - Aug 2025",
-        description:
-          "Intensive 3-month program totaling over 700 hours, covering both front-end and back-end development. The course was incredibly demanding and challenging, pushing us to give our all, but it was also highly rewarding and enjoyable. We faced complex projects, learned a wide range of technologies, and grew significantly as developers through hands-on experience and collaboration.",
+        id: "ha-fs-bootcamp",
         certificate: "/img/CertificadoTallerIntensivo.png",
+        start: "2025-05-01",
+        end: "2025-08-01",
         skills: {
           FrontEnd: ["HTML", "CSS", "JavaScript", "React", "TypeScript"],
           BackEnd: ["Node.js", "Express", "MongoDB", "MySQL"],
         },
       },
       {
-        degree: "Artificial Intelligence Course",
-        date: "Jul 2025 - Sep 2025",
-        description:
-          "Course on the fundamentals of AI and machine learning, covering supervised/unsupervised learning, neural networks, and practical applications such as AI logo creation tools, deployment with Vercel, and frameworks like TensorFlow and PyTorch.",
+        id: "ha-ai-course",
         certificate: "/img/TallerIACertificado.png",
+        start: "2025-07-01",
+        end: "2025-09-01",
         skills: {
           AI: [
             "Fundamentals of Artificial Intelligence",

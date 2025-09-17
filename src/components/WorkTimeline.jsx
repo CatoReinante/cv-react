@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function WorkTimeline({ workExperiences = [] }) {
   const [selectedIdx, setSelectedIdx] = useState(0);
   const selected = workExperiences?.[selectedIdx] ?? null;
+  const { t } = useTranslation("common");
+
+  // Textos i18n
+  const workTexts = t("work.experiences", { returnObjects: true });
+  const selectedText = workTexts?.[selectedIdx];
 
   useEffect(() => {
     if (!selected && workExperiences.length) setSelectedIdx(0);
@@ -27,9 +33,10 @@ export default function WorkTimeline({ workExperiences = [] }) {
             <div className="d-flex flex-column">
               {workExperiences.map((xp, i) => {
                 const active = i === selectedIdx;
+                const txt = workTexts?.[i] || {};
                 return (
                   <button
-                    key={`${xp.title}-${i}`}
+                    key={`${txt.title || "xp"}-${i}`}
                     type="button"
                     onClick={() => setSelectedIdx(i)}
                     aria-current={active ? "true" : undefined}
@@ -55,12 +62,12 @@ export default function WorkTimeline({ workExperiences = [] }) {
                       aria-hidden="true"
                     />
                     <div className="flex-grow-1">
-                      <div className="fw-semibold">{xp.title}</div>
+                      <div className="fw-semibold">{txt.title}</div>
                       <div className="text-body-secondary small">
-                        {xp.company}
+                        {txt.company}
                       </div>
                       <span className="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle mt-2">
-                        {xp.date}
+                        {txt.date}
                       </span>
                     </div>
                   </button>
@@ -73,40 +80,48 @@ export default function WorkTimeline({ workExperiences = [] }) {
         {/* DERECHA: detalle */}
         <div className="col-12 col-lg-7">
           <h2 id="career-title" className="fw-bold display-6 mb-4">
-            Work Experience
+            {t("work.labels.title")}
           </h2>
           <h4 className="text-body-secondary mb-4">
-            Hace click en un trabajo para ver los detalles
+            {t("work.labels.subtitle")}
           </h4>
           {selected ? (
             <div className="card shadow-sm bg-body border">
               <div className="card-body">
                 <h5 className="card-title mb-1">
-                  {selected.title} · {selected.company}
+                  {selectedText?.title} · {selectedText?.company}
                 </h5>
-                <div className="text-body-secondary mb-3">{selected.date}</div>
+                <div className="text-body-secondary mb-3">
+                  {selectedText?.date}
+                </div>
 
-                {selected.description?.summary && (
-                  <p className="mb-4">{selected.description.summary}</p>
+                {selectedText?.description?.summary && (
+                  <p className="mb-4">{selectedText.description.summary}</p>
                 )}
 
                 <div className="row g-4">
-                  {Array.isArray(selected.description?.responsibilities) && (
+                  {Array.isArray(
+                    selectedText?.description?.responsibilities
+                  ) && (
                     <div className="col-md-7">
-                      <h6 className="mb-2">Responsibilities</h6>
+                      <h6 className="mb-2">
+                        {t("work.labels.responsibilities")}
+                      </h6>
                       <ul className="mb-0">
-                        {selected.description.responsibilities.map((r, idx) => (
-                          <li key={idx}>{r}</li>
-                        ))}
+                        {selectedText.description.responsibilities.map(
+                          (r, idx) => (
+                            <li key={idx}>{r}</li>
+                          )
+                        )}
                       </ul>
                     </div>
                   )}
 
-                  {Array.isArray(selected.description?.skills) && (
+                  {Array.isArray(selectedText?.description?.skills) && (
                     <div className="col-md-5">
-                      <h6 className="mb-2">Skills</h6>
+                      <h6 className="mb-2">{t("work.labels.skills")}</h6>
                       <div className="d-flex flex-wrap gap-2">
-                        {selected.description.skills.map((s, idx) => (
+                        {selectedText.description.skills.map((s, idx) => (
                           <span
                             key={idx}
                             className="badge rounded-pill bg-body-tertiary text-body border"
@@ -121,9 +136,7 @@ export default function WorkTimeline({ workExperiences = [] }) {
               </div>
             </div>
           ) : (
-            <div className="text-body-secondary">
-              Select a job to see details.
-            </div>
+            <div className="text-body-secondary">{t("work.labels.empty")}</div>
           )}
         </div>
       </div>
