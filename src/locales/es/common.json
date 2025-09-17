@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "myStory": "Mi historia",
+    "career": "Carrera",
+    "studies": "Estudios",
+    "games": "Juegos"
+  },
+  "home": {
+    "name": "Joaquín Reinante",
+    "role": "Full-Stack Developer · Lic. en Administración de Empresas",
+    "intro": "Formado en negocios y orientado a la tecnología. Tras graduarme en Administración de Empresas, decidí cambiar mi rumbo profesional hacia el desarrollo de software y completé un Bootcamp Full-Stack intensivo de más de 700 horas. Desarrolló aplicaciones web de extremo a extremo y me desempeño con éxito en entornos dinámicos y colaborativos, aprendiendo rápidamente, adaptándome al cambio y resolviendo problemas con una mentalidad orientada al producto.",
+    "ctaProjectLabel": "Mirá mi último proyecto",
+    "ctaProjectBtn": "Studio Nora",
+    "ctaCvLabel": "Mirá mi CV",
+    "ctaCvBtn": "Descargar CV",
+    "thanks": "Gracias por visitar — abierto a nuevos desafíos y colaboraciones.",
+    "altProfile": "Foto de perfil"
+  }
+}

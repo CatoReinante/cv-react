@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function PiedraPapelTijera() {
-  const opciones = ["Piedra", "Papel", "Tijera"];
+  const opciones = ["Rock", "Paper", "Scissors"];
 
   const [playerChoice, setPlayerChoice] = useState(null);
   const [cpuChoice, setCpuChoice] = useState(null);
@@ -14,17 +14,17 @@ export default function PiedraPapelTijera() {
     setCpuChoice(cpu);
 
     if (eleccion === cpu) {
-      setResultado("Empate");
+      setResultado("Its a Draw!");
       setScore((s) => ({ ...s, draw: s.draw + 1 }));
     } else if (
-      (eleccion === "Piedra" && cpu === "Tijera") ||
-      (eleccion === "Papel" && cpu === "Piedra") ||
-      (eleccion === "Tijera" && cpu === "Papel")
+      (eleccion === "Rock" && cpu === "Scissors") ||
+      (eleccion === "Paper" && cpu === "Rock") ||
+      (eleccion === "Scissors" && cpu === "Paper")
     ) {
-      setResultado("Ganaste 😎");
+      setResultado("You Won!");
       setScore((s) => ({ ...s, win: s.win + 1 }));
     } else {
-      setResultado("Perdiste 😢");
+      setResultado("You Lost!");
       setScore((s) => ({ ...s, lose: s.lose + 1 }));
     }
   };
@@ -47,18 +47,18 @@ export default function PiedraPapelTijera() {
         margin: "200px auto",
       }}
     >
-      <h2 className="mb-3">Piedra · Papel · Tijera</h2>
+      <h2 className="mb-3">Rock · Paper · Scissors</h2>
 
       {/* Marcador */}
       <div className="d-flex flex-wrap gap-2 justify-content-center mb-3">
         <span className="badge bg-success-subtle text-success-emphasis border border-success-subtle">
-          Ganadas: {score.win}
+          Wins: {score.win}
         </span>
         <span className="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle">
-          Empates: {score.draw}
+          Draws: {score.draw}
         </span>
         <span className="badge bg-danger-subtle text-danger-emphasis border border-danger-subtle">
-          Perdidas: {score.lose}
+          Losses: {score.lose}
         </span>
       </div>
 
@@ -81,21 +81,21 @@ export default function PiedraPapelTijera() {
       {playerChoice && (
         <div className="mt-2 text-center">
           <p className="mb-1">
-            Vos elegiste:{" "}
+            You chose:{" "}
             <strong className="text-body-emphasis">{playerChoice}</strong>
           </p>
           <p className="mb-2">
-            La máquina eligió:{" "}
+            The computer chose:{" "}
             <strong className="text-body-emphasis">{cpuChoice}</strong>
           </p>
           <h4 className="text-body-emphasis">{resultado}</h4>
 
           <div className="d-flex gap-2 justify-content-center mt-3">
             <button className="btn btn-outline-secondary" onClick={resetRound}>
-              Reiniciar ronda
+              Restart round
             </button>
             <button className="btn btn-outline-danger" onClick={resetScore}>
-              Reiniciar marcador
+              Restart score
             </button>
           </div>
         </div>

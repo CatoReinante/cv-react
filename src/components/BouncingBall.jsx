@@ -20,7 +20,7 @@ export default function BouncingBall() {
     };
     resize();
 
-    // estado de la pelota
+    // pelota y física
     const ball = {
       x: 80,
       y: 60,
@@ -32,10 +32,9 @@ export default function BouncingBall() {
       grabOffsetX: 0,
       grabOffsetY: 0,
     };
-    const g = 900; // gravedad px/s^2
-    let samples = []; // últimas muestras para estimar la velocidad del lanzamiento
+    const g = 900;
+    let samples = [];
 
-    // helpers de puntero (convierte a coords del canvas en px CSS)
     const getCanvasPoint = (evt) => {
       const rect = canvas.getBoundingClientRect();
       const scaleX = canvas.width / rect.width;
@@ -185,12 +184,12 @@ export default function BouncingBall() {
     <div className="container py-4">
       {/* Texto explicativo arriba */}
       <div className="text-center mb-3">
-        <h2 className="h4 mb-2 mt-5">Pelota rebotando — Drag & Throw</h2>
+        <h2 className="h4 mb-2 mt-5">Bouncing Ball — Drag & Throw</h2>
         <p className="text-muted mb-0">
-          Agarrá la pelota con el mouse (o con el dedo en móvil), arrastrala y
-          soltala para
-          <strong> lanzarla</strong>. Rebota con física simple en los bordes y
-          cae por la gravedad.
+          Grab the ball with the mouse (or with your finger on mobile), drag it
+          and release it to
+          <strong> throw it</strong>. It bounces with simple physics on the
+          edges and falls due to gravity.
         </p>
       </div>
 

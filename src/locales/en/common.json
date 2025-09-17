@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "myStory": "My Story",
+    "career": "Career",
+    "studies": "Studies",
+    "games": "Games"
+  },
+  "home": {
+    "name": "Joaquín Reinante",
+    "role": "Full-Stack Developer · B.S. in Business Administration",
+    "intro": "Business-trained, tech-driven. After graduating in Business Administration, I shifted my career to software development and completed an intensive 700+ hour Full-Stack Bootcamp. I build end-to-end web applications and thrive in fast-paced, collaborative environments—learning quickly, adapting to change, and solving problems with a product mindset.",
+    "ctaProjectLabel": "Check out my last project",
+    "ctaProjectBtn": "Studio Nora",
+    "ctaCvLabel": "Check out my CV",
+    "ctaCvBtn": "Download CV",
+    "thanks": "Thanks for visiting — open to new challenges and collaborations.",
+    "altProfile": "Profile"
+  }
+}

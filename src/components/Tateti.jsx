@@ -65,7 +65,7 @@ export default function Tateti() {
         margin: "200px auto",
       }}
     >
-      <h2 className="mb-4">Ta-Te-Ti vs Máquina</h2>
+      <h2 className="mb-4">Ta-Te-Ti vs Computer</h2>
 
       <div
         className="d-flex flex-wrap justify-content-center"

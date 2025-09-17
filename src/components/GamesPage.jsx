@@ -6,20 +6,20 @@ export default function GamesPage() {
     {
       id: "bouncing-ball",
       title: "Bouncing Ball",
-      desc: "Pelota que podés agarrar y lanzar con física simple.",
+      desc: "Ball you can grab and throw with simple physics.",
       path: "/JoaquinReinante/games/bouncing-ball",
     },
     {
       id: "tateti",
-      title: "Ta-Te-Ti vs Máquina",
-      desc: "Juega Ta-Te-Ti contra una máquina que elige al azar.",
-      path: "/JoaquinReinante/games/tateti",
+      title: "Ta-Te-Ti vs Computer",
+      desc: "Play Tic-Tac-Toe against a computer that picks randomly.",
+      path: "/JoaquinReinante/games/tictactoe",
     },
     {
       id: "rps",
-      title: "Piedra · Papel · Tijera",
-      desc: "Clásico Piedra Papel o Tijera contra la computadora.",
-      path: "/JoaquinReinante/games/piedra-papel-tijera",
+      title: "Rock · Paper · Scissors",
+      desc: "Classic Rock Paper Scissors against the computer.",
+      path: "/JoaquinReinante/games/rock-paper-scissors",
     },
   ];
 

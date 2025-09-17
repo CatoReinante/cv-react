@@ -1,9 +1,7 @@
-import { academicEducation, technicalEducation } from "../data/EducationData";
-import WorkTimeline from "./WorkTimeline";
-import { workExperiences } from "../data/WorkExperience";
-import Education from "./Education";
+import { useTranslation } from "react-i18next";
 
 export default function HomePage() {
+  const { t } = useTranslation("common");
   return (
     <div>
       <div
@@ -25,21 +23,12 @@ export default function HomePage() {
             {/* Columna derecha - texto */}
             <div className="col-12 col-lg-8">
               <div className="text-center mb-4">
-                <h1 className="fw-bold display-5 mb-2">Joaquín Reinante</h1>
-                <p className="lead text-muted mb-3">
-                  Full-Stack Developer · B.S. in Business Administration
-                </p>
+                <h1 className="fw-bold display-5 mb-2">{t("home.name")}</h1>
+                <p className="lead text-muted mb-3">{t("home.role")}</p>
               </div>
               {/* Intro */}
               <div className="mx-5">
-                <p className="fs-5">
-                  Business-trained, tech-driven. After graduating in Business
-                  Administration, I shifted my career to software development
-                  and completed an intensive 700+ hour Full-Stack Bootcamp. I
-                  build end-to-end web applications and thrive in fast-paced,
-                  collaborative environments—learning quickly, adapting to
-                  change, and solving problems with a product mindset.
-                </p>
+                <p className="fs-5">{t("home.intro")}</p>
               </div>
               {/* Tech Stack */}
               <div className="d-flex flex-wrap justify-content-center gap-2 my-4 mb-5 mt-5">
@@ -65,7 +54,7 @@ export default function HomePage() {
               {/* Links */}
               <div className="row justify-content-center mb-4">
                 <div className="text-center col">
-                  <p className="text-center">Check out my last project</p>
+                  <p className="text-center">{t("home.ctaProjectLabel")}</p>
                   <a
                     href="https://studio-nora-ecommerce.vercel.app/"
                     className="text-center badge rounded-pill bg-body-tertiary text-body border fs-5 px-4 py-2"
@@ -77,14 +66,14 @@ export default function HomePage() {
                   </a>
                 </div>
                 <div className="text-center col">
-                  <p className="text-center">Check out my CV</p>
+                  <p className="text-center">{t("home.ctaCvLabel")}</p>
                   <a
                     className="text-center badge rounded-pill bg-body-tertiary text-body border fs-5 px-4 py-2"
                     style={{ textDecoration: "none" }}
                     href="public/CV Joaquin Reinante FSD ENG.pdf"
                     download
                   >
-                    Download CV
+                    {t("home.ctaCvBtn")}
                   </a>
                 </div>
               </div>
@@ -106,7 +95,7 @@ export default function HomePage() {
                 </a>
               </div>
               <p className="text-center text-muted mt-5 mb-0">
-                Thanks for visiting — open to new challenges and collaborations.
+                {t("home.thanks")}
               </p>
             </div>
           </div>

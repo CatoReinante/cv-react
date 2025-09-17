@@ -1,12 +1,16 @@
 import { NavLink } from "react-router";
 import ThemeToggle from "./ThemeToggle";
+import { useTranslation } from "react-i18next";
+import LanguageSwitch from "./LangSwitch";
 
 export default function Navbar() {
+  const { t } = useTranslation("common");
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary shadow fixed-top">
       <div className="container-fluid mx-5">
         <a className="navbar-brand" href="/JoaquinReinante#hero">
-          MiCV
+          JR
         </a>
         <button
           className="navbar-toggler"
@@ -23,30 +27,32 @@ export default function Navbar() {
           <ul className="navbar-nav">
             <li className="nav-item">
               <a href="/JoaquinReinante" className="nav-link">
-                My Story
+                {t("nav.myStory")}
               </a>
             </li>
 
             <li className="nav-item">
               <a href="/JoaquinReinante/career" className="nav-link">
-                Career
+                {t("nav.career")}
               </a>
             </li>
 
             <li className="nav-item">
               <a href="/JoaquinReinante/education" className="nav-link">
-                Studies
+                {t("nav.studies")}
               </a>
             </li>
             <li className="nav-item">
               <a href="/JoaquinReinante/games" className="nav-link">
-                Games
+                {t("nav.games")}
               </a>
             </li>
           </ul>
 
-          <div className="ms-auto">
+          <div className="ms-auto gap-4 d-flex">
             <ThemeToggle />
+
+            <LanguageSwitch />
           </div>
         </div>
       </div>

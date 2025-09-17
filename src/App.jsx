@@ -34,11 +34,11 @@ function App() {
           }
         />
         <Route
-          path="/JoaquinReinante/games/piedra-papel-tijera"
+          path="/JoaquinReinante/games/rock-paper-scissors"
           element={<PiedraPapelTijera />}
         />
         <Route
-          path="/JoaquinReinante/games/tateti"
+          path="/JoaquinReinante/games/tictactoe"
           element={<TatetiVsMaquina />}
         />
         <Route
